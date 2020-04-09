@@ -56,7 +56,11 @@ class ProduitCrudController extends CrudController
         $this->crud->addField([
             'name' => 'codeProduit',
             'type' => 'number',
-            'label' => "Code Produit"
+            'label' => "Code Produit",
+            'attributes' => [
+                'readonly'=>'readonly',
+                'disabled'=>'disabled',
+            ]
         ]);
 
         $this->crud->addField([
