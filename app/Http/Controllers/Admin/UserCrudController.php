@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CatproduitRequest;
+use App\Http\Requests\UserRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class CatproduitCrudController
+ * Class UserCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class CatproduitCrudController extends CrudController
+class UserCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -21,46 +21,23 @@ class CatproduitCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Catproduit');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/catproduit');
-        $this->crud->setEntityNameStrings('catproduit', 'catproduits');
+        $this->crud->setModel('App\Models\User');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/user');
+        $this->crud->setEntityNameStrings('user', 'users');
     }
 
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        // $this->crud->setFromDb();
-        $this->crud->setColumns(['catID', 'nomCat']);
-
-        $this->crud->setColumnDetails(
-            'catID', 
-            [
-                'label' => 'Id'
-            ]
-        );
-
-        $this->crud->setColumnDetails(
-            'nomCat', 
-            [
-                'label' => 'Nom'
-            ]
-        );
-
+        $this->crud->setFromDb();
     }
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(CatproduitRequest::class);
+        $this->crud->setValidation(UserRequest::class);
 
         // TODO: remove setFromDb() and manually define Fields
-        // $this->crud->setFromDb();
-
-        $this->crud->addField([
-            'name' => 'nomCat',
-            'type' => 'text',
-            'label' => "Nom"
-        ]);
-        
+        $this->crud->setFromDb();
     }
 
     protected function setupUpdateOperation()

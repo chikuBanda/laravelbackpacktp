@@ -27,6 +27,7 @@ class ProduitCrudController extends CrudController
         $this->crud->setEntityNameStrings('produit', 'produits');
     }
 
+    
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
@@ -34,16 +35,89 @@ class ProduitCrudController extends CrudController
         
 
         $this->crud->setColumns([
+            'imgPath',
             'codeProduit', 
             'nom', 
             'prix', 
-            'catID', 
+            'nomCat', 
             'remise', 
             'date_debut', 
             'date_fin', 
-            'isPromo', 
-            'imgPath'
-            ]);
+            'isPromo'
+        ]);
+
+        $this->crud->setColumnDetails(
+            'codeProduit', 
+            [
+                'label' => 'Code'
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'imgPath', 
+            [
+                'label' => 'Image',
+                'type' => 'image',
+                'height' => '50px',
+                'width' => '80px'
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'nomCat',
+            [
+                'name' => 'catID',
+                'type' => 'select',
+                'label' => "Category",
+                'entity' => 'categories',
+                'attribute' => 'nomCat'
+            ]
+        );
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', false);
+
+        $this->crud->setColumns([
+            'imgPath',
+            'codeProduit', 
+            'nom', 
+            'prix', 
+            'nomCat', 
+            'remise', 
+            'date_debut', 
+            'date_fin', 
+            'isPromo'
+        ]);
+
+        $this->crud->setColumnDetails(
+            'codeProduit', 
+            [
+                'label' => 'Code'
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'imgPath', 
+            [
+                'label' => 'Image',
+                'type' => 'image',
+                'height' => '200px',
+                'width' => '200px'
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'nomCat',
+            [
+                'name' => 'catID',
+                'type' => 'select',
+                'label' => "Category",
+                'entity' => 'categories',
+                'attribute' => 'nomCat'
+            ]
+        );
     }
 
     protected function setupCreateOperation()
@@ -52,16 +126,6 @@ class ProduitCrudController extends CrudController
 
         // TODO: remove setFromDb() and manually define Fields
         // $this->crud->setFromDb();
-
-        $this->crud->addField([
-            'name' => 'codeProduit',
-            'type' => 'number',
-            'label' => "Code Produit",
-            'attributes' => [
-                'readonly'=>'readonly',
-                'disabled'=>'disabled',
-            ]
-        ]);
 
         $this->crud->addField([
             'name' => 'nom',
@@ -78,7 +142,7 @@ class ProduitCrudController extends CrudController
         $this->crud->addField([
             'name' => 'catID',
             'type' => 'select2',
-            'label' => "CatID",
+            'label' => "Category",
             'entity' => 'categories',
             'attribute' => 'id_name'
         ]);
@@ -109,8 +173,14 @@ class ProduitCrudController extends CrudController
 
         $this->crud->addField([
             'name' => 'imgPath',
-            'type' => 'text',
-            'label' => "Img path",
+            'type' => 'image',
+            'label' => "image",
+            'height' => '50px',
+            'width' => '50px',
+            'upload' => true,
+            'crop' => true,
+            'aspect_ratio' => 1,
+            //'prefix' => 'uploads/img'
         ]);
     }
 

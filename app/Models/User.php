@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Catproduit extends Model
+class User extends Model
 {
     use CrudTrait;
 
@@ -15,10 +15,10 @@ class Catproduit extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'catproduits';
-    protected $primaryKey = 'catID';
-    public $timestamps = false;
-    protected $guarded = ['catID'];
+    protected $table = 'users';
+    // protected $primaryKey = 'id';
+    // public $timestamps = false;
+    protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
@@ -28,16 +28,6 @@ class Catproduit extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-
-    public function getIdNameAttribute()
-    {
-        return $this->catID.":  ".$this->nomCat;
-    }
-
-    public function getNomCategoryAttribute()
-    {
-        return $this->nomCat;
-    }
 
     /*
     |--------------------------------------------------------------------------
