@@ -26,7 +26,13 @@ class ProduitRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'nom' => 'required|min:5|max:255',
+            'prix' => 'required|numeric|gte:0',
+            'imgPath' => 'required',
+            'date_debut' => 'required|date',
+            'date_fin' => 'required|date|after:date_debut',
+            'remise' => 'lt:prix|numeric|gte:0',
+            'catID' => 'required'
         ];
     }
 

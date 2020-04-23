@@ -35,6 +35,16 @@ class Commentaire extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function produits()
+    {
+        return $this->belongsTo('App\Models\Produit', 'codeProduit');
+    }
+
+    public function clients()
+    {
+        return $this->belongsTo('App\Models\Client', 'numClient');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

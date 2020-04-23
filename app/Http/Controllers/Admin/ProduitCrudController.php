@@ -150,7 +150,8 @@ class ProduitCrudController extends CrudController
         $this->crud->addField([
             'name' => 'remise',
             'type' => 'number',
-            'label' => "Remise"
+            'label' => "Remise",
+            'default' => 0
         ]);
 
         $this->crud->addField([

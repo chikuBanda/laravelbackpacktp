@@ -29,7 +29,45 @@ class FormuleCrudController extends CrudController
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
+        // $this->crud->setFromDb();
+
+        $this->crud->setColumns([
+            'imgPath',
+            'nomFormule',
+            'prix', 
+            'description', 
+        ]);
+
+        $this->crud->setColumnDetails(
+            'imgPath', 
+            [
+                'label' => 'Image',
+                'type' => 'image',
+                'height' => '50px',
+                'width' => '80px'
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'nomFormule', 
+            [
+                'label' => 'Nom',
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'prix', 
+            [
+                'label' => 'Prix',
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'description', 
+            [
+                'label' => 'Description',
+            ]
+        );
     }
 
     protected function setupCreateOperation()
@@ -37,11 +75,84 @@ class FormuleCrudController extends CrudController
         $this->crud->setValidation(FormuleRequest::class);
 
         // TODO: remove setFromDb() and manually define Fields
-        $this->crud->setFromDb();
+        // $this->crud->setFromDb();
+
+        $this->crud->addField([
+            'name' => 'nomFormule',
+            'type' => 'text',
+            'label' => "Nom"
+        ]);
+
+        $this->crud->addField([
+            'name' => 'prix',
+            'type' => 'number',
+            'label' => "Prix"
+        ]);
+
+        $this->crud->addField([
+            'name' => 'description',
+            'type' => 'textarea',
+            'label' => "Description"
+        ]);
+
+        $this->crud->addField([
+            'name' => 'imgPath',
+            'type' => 'image',
+            'label' => "Image",
+            'height' => '50px',
+            'width' => '50px',
+            'upload' => true,
+            'crop' => true,
+            'aspect_ratio' => 1,
+            //'prefix' => 'uploads/img'
+        ]);
     }
 
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', false);
+
+        $this->crud->setColumns([
+            'imgPath',
+            'nomFormule',
+            'prix', 
+            'description', 
+        ]);
+
+        $this->crud->setColumnDetails(
+            'imgPath', 
+            [
+                'label' => 'Image',
+                'type' => 'image',
+                'height' => '200px',
+                'width' => '200px'
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'nomFormule', 
+            [
+                'label' => 'Nom',
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'prix', 
+            [
+                'label' => 'Prix',
+            ]
+        );
+
+        $this->crud->setColumnDetails(
+            'description', 
+            [
+                'label' => 'Description',
+            ]
+        );
     }
 }

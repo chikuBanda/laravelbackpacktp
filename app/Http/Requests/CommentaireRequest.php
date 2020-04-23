@@ -26,7 +26,10 @@ class CommentaireRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'texte' => 'required|min:2|max:255',
+            'date_pub' => 'required|date',
+            'codeProduit' => 'required',
+            'numClient' => 'required'
         ];
     }
 

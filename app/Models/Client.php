@@ -32,6 +32,11 @@ class Client extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function getFullNameAttribute()
+    {
+        return strtoupper($this->nom[0]).". ".$this->prenom;
+    }
+
     public function setImgpathAttribute($value)
     {
         $attribute_name = "imgPath";
