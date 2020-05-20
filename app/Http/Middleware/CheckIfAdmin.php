@@ -20,10 +20,10 @@ class CheckIfAdmin
      *
      * @return bool [description]
      */
-    private function checkIfUserIsAdmin($user)
+    private function checkIfUserIsAdmin($client)
     {
-        // return ($user->is_admin == 1);
-        return true;
+        return ($client->isAdmin == 1);
+        //return true;
     }
 
     /**

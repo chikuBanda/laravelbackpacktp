@@ -15,18 +15,18 @@ class CreateElemproduitsTable extends Migration
     {
         Schema::create('elemproduits', function (Blueprint $table) {
             $table->increments('idElemProduit');
-            $table->unsignedInteger('numElem');
-            $table->unsignedInteger('codeProduit');
+            $table->unsignedInteger('elementbase_numElem');
+            $table->unsignedInteger('produit_codeProduit');
         });
 
         Schema::table('elemproduits', function (Blueprint $table) {
-            $table->foreign('numElem')
+            $table->foreign('elementbase_numElem')
                     ->references('numElem')
                     ->on('elementbases')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
 
-            $table->foreign('codeProduit')
+            $table->foreign('produit_codeProduit')
                     ->references('codeProduit')
                     ->on('produits')
                     ->onDelete('cascade')

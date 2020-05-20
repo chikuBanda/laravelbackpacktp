@@ -3,13 +3,11 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
-use \Hash;
+use Backpack\Base\app\Models\Traits\InheritsRelationsFromParentModel;
+use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-
-class Client extends Model
+class Client extends Authenticatable
 {
     use CrudTrait;
 
@@ -38,7 +36,13 @@ class Client extends Model
         return strtoupper($this->nom[0]).". ".$this->prenom;
     }
 
-    public function setImgpathAttribute($value)
+    public function getAuthPassword()
+    {
+      return $this->motdepasse;
+    }
+
+
+    /*public function setImgpathAttribute($value)
     {
         $attribute_name = "imgPath";
         $disk = config('backpack.base.root_disk_name'); // or use your own disk, defined in config/filesystems.php
@@ -75,11 +79,11 @@ class Client extends Model
             $this->attributes[$attribute_name] = $public_destination_path.'/'.$filename;
 
         }
-    }
+    }*/
 
-    public function setMotdepasseAttribute($value) {
+    /*public function setMotdepasseAttribute($value) {
         $this->attributes['motdepasse'] = Hash::make($value);
-    }
+    }*/
 
     /*
     |--------------------------------------------------------------------------
