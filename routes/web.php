@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Formule;
+use App\Models\Produit;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function (){
-    return view('test');
+Route::get('formules', 'FormuleController@list');
+
+Route::get('produits', 'ProduitController@list');
+
+Route::get('/produits/{id}/ingredients', function ($id) {
+    return view('ingredient.ingredients', ['ingredients' => Produit::find($id)->elementbases]);
+});
+
+Route::get('/formules/{id}/ajouter', function ($id) {
+    return view('formule.add', ['formule'=>Formule::find($id)]);
 });

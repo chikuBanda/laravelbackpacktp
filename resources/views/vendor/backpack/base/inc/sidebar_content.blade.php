@@ -5,7 +5,7 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('client') }}'><i class='nav-icon fa fa-users'></i> Clients</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('commentaire') }}'><i class='nav-icon fa fa-question'></i> Commentaires</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('formule') }}'><i class='nav-icon fa fa-question'></i> Formules</a></li>
-<!--<li class='nav-item'><a class='nav-link' href='{{ backpack_url('imageclient') }}'><i class='nav-icon fa fa-question'></i> Imageclients</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('imageclient') }}'><i class='nav-icon fa fa-question'></i> Imageclients</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('boitmsg') }}'><i class='nav-icon fa fa-question'></i> Boitmsgs</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('cmd') }}'><i class='nav-icon fa fa-question'></i> Cmds</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('formule') }}'><i class='nav-icon fa fa-question'></i> Formules</a></li>

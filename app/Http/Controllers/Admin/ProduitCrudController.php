@@ -18,7 +18,7 @@ class ProduitCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-    
+
 
     public function setup()
     {
@@ -27,34 +27,34 @@ class ProduitCrudController extends CrudController
         $this->crud->setEntityNameStrings('produit', 'produits');
     }
 
-    
+
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
         // $this->crud->setFromDb();
-        
+
 
         $this->crud->setColumns([
             'imgPath',
-            'codeProduit', 
-            'nom', 
-            'prix', 
-            'nomCat', 
-            'remise', 
-            'date_debut', 
-            'date_fin', 
+            'codeProduit',
+            'nom',
+            'prix',
+            'nomCat',
+            'remise',
+            'date_debut',
+            'date_fin',
             'isPromo'
         ]);
 
         $this->crud->setColumnDetails(
-            'codeProduit', 
+            'codeProduit',
             [
                 'label' => 'Code'
             ]
         );
 
         $this->crud->setColumnDetails(
-            'imgPath', 
+            'imgPath',
             [
                 'label' => 'Image',
                 'type' => 'image',
@@ -81,25 +81,25 @@ class ProduitCrudController extends CrudController
 
         $this->crud->setColumns([
             'imgPath',
-            'codeProduit', 
-            'nom', 
-            'prix', 
-            'nomCat', 
-            'remise', 
-            'date_debut', 
-            'date_fin', 
+            'codeProduit',
+            'nom',
+            'prix',
+            'nomCat',
+            'remise',
+            'date_debut',
+            'date_fin',
             'isPromo'
         ]);
 
         $this->crud->setColumnDetails(
-            'codeProduit', 
+            'codeProduit',
             [
                 'label' => 'Code'
             ]
         );
 
         $this->crud->setColumnDetails(
-            'imgPath', 
+            'imgPath',
             [
                 'label' => 'Image',
                 'type' => 'image',
@@ -182,6 +182,17 @@ class ProduitCrudController extends CrudController
             'crop' => true,
             'aspect_ratio' => 1,
             //'prefix' => 'uploads/img'
+        ]);
+
+        $this->crud->addField([
+            'label'     => 'Elements bases',
+            'type'      => 'select2_multiple',
+            'name'      => 'elementbases',
+            'entity'    => 'elementbases',
+            'attribute' => 'nomElem',
+            'model'     => "App\Models\Elementbase",
+            'pivot'     => true,
+            'select_all' => true,
         ]);
     }
 
