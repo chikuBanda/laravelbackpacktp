@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
 
 class Lignecmdform extends Model
 {
@@ -34,6 +36,11 @@ class Lignecmdform extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function produits()
+    {
+        return $this->belongsToMany('App\Models\Produit', 'cmdformligneproduits', 'ligneID', 'codeProduit');
+    }
 
     /*
     |--------------------------------------------------------------------------

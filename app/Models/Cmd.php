@@ -29,6 +29,16 @@ class Cmd extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function produits()
+    {
+        return $this->belongsToMany('App\Models\Produit', 'lignecommandes', 'numCommande', 'codeProduit');
+    }
+
+    public function formules()
+    {
+        return $this->belongsToMany('App\Models\Formule', 'lignecmdforms', 'numCommande', 'codeFormule');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
