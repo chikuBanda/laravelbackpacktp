@@ -7,6 +7,7 @@ class Cart
     public $items = null;
     public $totalQuantity = 0;
     public $totalPrice = 0;
+    public $n = 0;
 
     public function __construct($oldCart)
     {
@@ -15,6 +16,7 @@ class Cart
             $this->items = $oldCart->items;
             $this->totalQuantity = $oldCart->totalQuantity;
             $this->totalPrice = $oldCart->totalPrice;
+            $this->n = $oldCart->n;
         }
     }
 
@@ -40,6 +42,7 @@ class Cart
     }
 
     public function addFormule($item, $id, $produits){
+        $cles = $id;
         $storedItem = [
             'quantity' => 0,
             'prix' => $item->prix,
@@ -49,15 +52,39 @@ class Cart
 
         if($this->items)
         {
-            if(array_key_exists($id, $this->items))
+            $itemExists = false;
+            $existKey = -1;
+            foreach($this->items as $key => $value)
             {
-                $storedItem = $this->items[$id];
+                if($key[1] == $id[1])
+                {
+                    $itemExists = true;
+                    $existKey = $key;
+                }
+            }
+
+            if($itemExists && $existKey >= 0)
+            {
+                $different = false;
+                for($i = 0; $i < $storedItem['produits']->count(); $i++)
+                {
+                    if(($storedItem['produits'][$i])->codeProduit != $this->items[$existKey]['produits'][$i]->codeProduit)
+                    {
+                        $different = true;
+                    }
+                }
+                if(!$different)
+                {
+                    $storedItem = $this->items[$existKey];
+                    $cles = $existKey;
+                }
             }
         }
         $storedItem['quantity']++;
         $storedItem['prix'] = $item->prix * $storedItem['quantity'];
-        $this->items[$id] = $storedItem;
+        $this->items[$cles] = $storedItem;
         $this->totalQuantity++;
+        $this->n++;
         $this->totalPrice += $item->prix;
     }
 }

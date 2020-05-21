@@ -37,7 +37,7 @@ Route::get('/produits/{id}/ingredients', function ($id) {
 
 Route::get('/add-produit-to-cart/{id}', 'ProduitController@getAddToCart');
 
-Route::get('/add-formule-to-cart/{id}', 'FormuleController@getAddToCart');
+Route::post('/add-formule-to-cart/{id}', 'FormuleController@postAddToCart');
 
 Route::get('/checkout', 'CmdController@checkout');
 
@@ -47,7 +47,7 @@ Route::post('/checkout', [
 ]);
 
 Route::get('/formules/{id}/ajouter', function ($id) {
-    return view('formule.add', ['formule'=>Formule::find($id)]);
+    return view('formule.add', ['formule'=>Formule::find($id), 'produits'=>Produit::all()]);
 });
 
 Auth::routes();

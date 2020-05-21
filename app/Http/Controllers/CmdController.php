@@ -41,14 +41,6 @@ class CmdController extends Controller
 
         Stripe::setApiKey("sk_test_KTU1mI2lVJ95CKmZ5gmDmLtw00RzlcYfSe");
         try{
-            /*PaymentIntent::create([
-                'amount' => $cart->totalPrice * 100,
-                'currency' => 'usd',
-                'source' => $request->input('stripeToken'),
-                'payment_method_types' => ['card'],
-                'receipt_email' => 'chikubanda.cb@gmail.com',
-            ]);*/
-
             \Stripe\Charge::create([
                 'amount' => $cart->totalPrice * 100,
                 'currency' => 'usd',
