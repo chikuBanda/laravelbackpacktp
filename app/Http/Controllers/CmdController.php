@@ -111,4 +111,16 @@ class CmdController extends Controller
             }
         }
     }
+
+    public function getCart()
+    {
+        if (!Session::has('cart'))
+        {
+            return view('commande.cart');
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('commande.cart', ['items' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
 }

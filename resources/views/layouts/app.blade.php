@@ -13,14 +13,16 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/c46e0100b8.js" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-
     <!-- Styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('style')
 </head>
 <body>
     <div id="app">
@@ -50,9 +52,9 @@
                                 <a class="nav-link" href="/formules">Formules</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/test">Cart
+                                <a class="nav-link" href="/cart">Cart
                                     <i class="fas fa-shopping-cart">
-                                        <span class="badge badge-secondary">
+                                        <span class="badge badge-success">
                                             {{Session::has('cart') ? Session::get('cart')->totalQuantity : ''}}
                                         </span>
                                     </i>
@@ -74,9 +76,9 @@
                                     <a class="nav-link" href="/formules">Formules</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/test">Cart
+                                    <a class="nav-link" href="/cart">Cart
                                         <i class="fas fa-shopping-cart">
-                                            <span class="badge badge-secondary">
+                                            <span class="badge badge-success">
                                                 {{Session::has('cart') ? Session::get('cart')->totalQuantity : ''}}
                                             </span>
                                         </i>

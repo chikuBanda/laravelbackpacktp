@@ -25,7 +25,7 @@ Route::get('/test1', function () {
 });
 
 //carttest
-Route::get('test', 'FormuleController@carttest');
+Route::get('cart', 'CmdController@getCart');
 
 Route::get('formules', 'FormuleController@list');
 
@@ -46,8 +46,26 @@ Route::post('/checkout', [
     'as' => 'checkout'
 ]);
 
-Route::get('/formules/{id}/ajouter', function ($id) {
-    return view('formule.add', ['formule'=>Formule::find($id), 'produits'=>Produit::all()]);
+Route::get('/formules/{id}/{nom}', function ($id, $nom) {
+    if($nom == 'formulaire')
+    {
+        return view('formule.add', ['formule'=>Formule::find($id), 'produits'=>Produit::all()]);
+    }
+    if($nom == 'duo')
+    {
+        return view('formule.add_duo', ['formule'=>Formule::find($id), 'produits'=>Produit::all()]);
+    }
+    if($nom == 'familiale')
+    {
+        return view('formule.add_familiale', ['formule'=>Formule::find($id), 'produits'=>Produit::all()]);
+    }
+    if($nom == 'match')
+    {
+        return view('formule.add_match', ['formule'=>Formule::find($id), 'produits'=>Produit::all()]);
+    }
+
+    return view('/');
+
 });
 
 Auth::routes();
