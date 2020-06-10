@@ -6,14 +6,27 @@ use App\Models\Produit;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Cart;
+use App\Models\Catproduit;
 use Illuminate\Support\Facades\Session;
 
 class ProduitController extends Controller
 {
-    public function list()
+    public function list($cat = null)
     {
         //dd(session()->all());
-        return view('produit.produits', ['produits' => Produit::all()]);
+        if($cat)
+        {
+            $temp = Catproduit::where('nomCat', $cat)->first();
+            if($temp)
+            {
+                return view('produit.produits', ['produits' => Produit::all(), 'categories' => Catproduit::all(), 'cat' => $cat]);
+            }
+            else
+            {
+                return redirect('/produits');
+            }
+        }
+        return view('produit.produits', ['produits' => Produit::all(), 'categories' => Catproduit::all(), 'cat' => 'pizza']);
     }
 
     public function getAddToCart(Request $request, $id)
@@ -26,6 +39,6 @@ class ProduitController extends Controller
 
         $request->session()->put('cart', $cart);
         $request->session()->put('hello', 'hello');
-        return redirect('/produits');
+        return redirect()->back();
     }
 }

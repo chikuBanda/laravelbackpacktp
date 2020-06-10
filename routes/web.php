@@ -2,6 +2,7 @@
 
 use App\Models\Formule;
 use App\Models\Produit;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,16 +21,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test1', function () {
-    return view('test');
-});
+Route::get('/test', 'FormuleController@carttest');
 
 //carttest
-Route::get('cart', 'CmdController@getCart');
+Route::get('cart', [
+    'uses'=>'CmdController@getCart',
+    'as'=>'getCart'
+]);
 
 Route::get('formules', 'FormuleController@list');
 
-Route::get('produits', 'ProduitController@list');
+Route::get('produits/{cat?}', 'ProduitController@list');
 
 Route::get('/produits/{id}/ingredients', function ($id) {
     return view('ingredient.ingredients', ['ingredients' => Produit::find($id)->elementbases]);
@@ -45,6 +47,12 @@ Route::post('/checkout', [
     'uses' => 'CmdController@postCheckout',
     'as' => 'checkout'
 ]);
+
+Route::post('/updateCart', [
+    'uses' => 'CmdController@updateCart',
+    'as' => 'updateCart'
+]);
+
 
 Route::get('/formules/{id}/{nom}', function ($id, $nom) {
     if($nom == 'formulaire')

@@ -123,4 +123,43 @@ class CmdController extends Controller
         $cart = new Cart($oldCart);
         return view('commande.cart', ['items' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
+
+    public function updateCart(Request $request)
+    {
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+
+        $totalQuantity = 0;
+        $totalPrice = 0;
+
+        foreach($cart->items as $id=>$item)
+        {
+            if(!$request->input($id))
+            {
+                unset($cart->items[$id]);
+            }
+            else
+            {
+                $qty = $request->input($id);
+                $cart->items[$id]['quantity'] = $qty;
+                $cart->items[$id]['prix'] = $cart->items[$id]['item']->prix * $qty;
+                $totalQuantity += $qty;
+                $totalPrice += $cart->items[$id]['prix'];
+            }
+        }
+
+        $cart->totalPrice = $totalPrice;
+        $cart->totalQuantity = $totalQuantity;
+
+        if($cart->totalQuantity == 0)
+        {
+            $request->session()->forget('cart');
+        }
+        else
+        {
+            $request->session()->put('cart', $cart);
+        }
+
+        return redirect()->route('getCart');
+    }
 }
