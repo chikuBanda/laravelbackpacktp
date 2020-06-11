@@ -1,23 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div style="background-attachment: fixed; background-size: cover; width: 100%; display: flex; flex-flow: column; min-height: 100%; background-image: url('{{ asset('uploads/img/wood-background.jpg') }}'); padding-top: 30px">
-
+    <div style="
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            background-image: url('{{ asset('uploads/img/pizza-baked-chesse-spicy-7t-1366x768.jpg') }}');">
+            <div style="background-color: black; width: inherit; height: inherit; opacity: 60%"></div>
+    </div>
     <div
         style="
             background-attachment: fixed;
+            background-size: cover;
             width: 100%;
             display: flex;
             flex-flow: column;
-            height: 200px;
-            background-image: url('{{ asset('uploads/img/pizza1.jpeg') }}');
-            background-repeat: repeat-x;
-            margin-top: 25px;
-            text-align: center
-            "
-        >
-    </div>
-    <div class="container">
+            min-height: 100vh;
+            background-image: url('{{ asset('uploads/img/wood-background6.jpg') }}');
+            padding-top: 30px">
+    <div class="container" style="padding-top: 50px">
             @if (Session::has('success'))
                 <div class="row">
                     <div class="col-sm-6 col-md-4 offset-md4 offset-sm-3">

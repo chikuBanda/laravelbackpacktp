@@ -1,31 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-    <div
+    <div style="
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            background-image: url('{{ asset('uploads/img/pizza2.jpg') }}');">
+            <div style="background-color: black; width: inherit; height: inherit; opacity: 50%"></div>
+    </div>
+    <div style="
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+            ">
+    </div>
+    <div id="contents"
         style="
             background-attachment: fixed;
             background-size: cover;
             width: 100%;
             display: flex;
             flex-flow: column;
-            min-height: 100%;
-            background-image: url('{{ asset('uploads/img/wood-background.jpg') }}');
+            min-height: 100vh;
+            background-image: url('{{ asset('uploads/img/wood-background6.jpg') }}');
             padding-top: 30px">
-        <div
-            style="
-                background-attachment: fixed;
-                width: 100%;
-                display: flex;
-                flex-flow: column;
-                height: 200px;
-                background-image: url('{{ asset('uploads/img/pizza1.jpeg') }}');
-                background-repeat: repeat-x;
-                margin-top: 25px;
-                text-align: center
-                "
-            >
-        </div>
-        <div class="container">
+        <div class="container" style="padding-top: 50px">
             @if (Session::has('success'))
                 <div class="row">
                     <div class="col-sm-6 col-md-4 offset-md4 offset-sm-3">
@@ -39,9 +39,9 @@
             <div id="tab-buttons" class="tab">
                 @foreach ($categories as $categorie)
                     @if ($cat == $categorie->nomCat)
-                        <a class="cat btn active" href="/produits/{{$categorie->nomCat}}" class="tablinks active"> {{$categorie->nomCat}} </a>
+                        <a class="cat btn active" href="/produits/{{$categorie->nomCat}}#contents" class="tablinks active"> {{$categorie->nomCat}} </a>
                     @else
-                        <a class="cat btn" href="/produits/{{$categorie->nomCat}}" class="tablinks"> {{$categorie->nomCat}} </a>
+                        <a class="cat btn" href="/produits/{{$categorie->nomCat}}#contents" class="tablinks"> {{$categorie->nomCat}} </a>
                     @endif
                 @endforeach
             </div>

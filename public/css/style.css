@@ -1,0 +1,15 @@
+.navbar-brand, .nav-link, .fa-shopping-cart
+{
+    color: white !important;
+}
+
+.navbar
+{
+    transition: 300ms ease;
+    background-color: transparent;
+}
+
+.scrolled
+{
+    background-color: black !important;
+}

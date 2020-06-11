@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Models\Cart;
 use App\Models\Catproduit;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class ProduitController extends Controller
 {
@@ -39,6 +41,7 @@ class ProduitController extends Controller
 
         $request->session()->put('cart', $cart);
         $request->session()->put('hello', 'hello');
-        return redirect()->back();
+        //return redirect()->back();
+        return Redirect::to(URL::previous() . "#contents");
     }
 }
