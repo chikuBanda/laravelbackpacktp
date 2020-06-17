@@ -6,10 +6,11 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Backpack\Base\app\Models\Traits\InheritsRelationsFromParentModel;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravelista\Comments\Commenter;
 
 class Client extends Authenticatable
 {
-    use CrudTrait;
+    use CrudTrait, Commenter;
 
     /*
     |--------------------------------------------------------------------------

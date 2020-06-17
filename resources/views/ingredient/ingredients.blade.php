@@ -40,7 +40,7 @@
             flex-flow: column;
             background-color: white;
         ">
-            <div class="container" style="margin: 100px">
+            <div class="container" style="margin: 0px 100px 100px 100px;">
                 <div class="row">
                     <div class="col-md-7">
                         <img
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <hr>
+                <hr style="width: 77%; margin-left: 0px; margin-right: 0px;">
 
                 <h4 style="margin-top: 40px; margin-bottom: 30px"><strong>Ingredients</strong></h4>
                 <div class="container">
@@ -97,6 +97,13 @@
                             <h5 style="margin-top: 10px;"><strong>ingredient</strong></h3>
                         </div>
                     </div>
+                </div>
+
+                <hr style="width: 77%; margin-left: 0px; margin-right: 0px;">
+
+                <h4 style="margin-top: 40px; margin-bottom: 30px"><strong>Commentaires</strong></h4>
+                <div class="container" style="    width: 80%; padding-left: 0px; margin-left: 15px;">
+                    @comments(['model' => $produit])
                 </div>
             </div>
         </div>

@@ -1,11 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-    <div style="background-attachment: fixed; background-size: cover; width: 100%; display: flex; flex-flow: column; min-height: 100%; background-image: url('{{ asset('uploads/img/wood-background.jpg') }}'); padding-top: 30px">
-        <div style="background-color: transparent; width: 100%; height: 35%">
+    <div style="
+        background-size: cover;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        min-height: 100vh;
+        background-color: pink;
+    ">
+        <div style="
+            background-size: cover;
+            width: 100%;
+            height: 200px;
+            background-color: black;
+            position: relative;
+        ">
+            <div style="
+                background-size: cover;
+                position: absolute;
+                bottom: 0px;
+                background-color: transparent;
+                top: 138px;
+                left: 90px;
+                right: 90px;
+            ">
+                    <div style="
+                    background-size: cover;
+                    height: 100%;
+                    background-color: white;
+                ">
+                </div>
+            </div>
         </div>
-        <div style="background-color: #FEDDCA; background-size: cover; width: 100%; display: flex; flex-flow: column; height: 100%;">
-            <div class="container" style="background-color: white; display: flex; flex-flow: column; height: 100%;">
+        <div style="
+            margin-right: 90px;
+            margin-left: 90px;
+            display: flex;
+            flex-flow: column;
+            background-color: white;
+        ">
+            <div class="container" style="margin: 0px 100px 100px 100px; display: flex;">
                 @if (Session::has('cart'))
                     <!-- Shopping cart table -->
                     <form action="{{route('updateCart')}}" method="post">
@@ -84,6 +119,7 @@
                                                     <button type="button" onclick="subtract(this)"
                                                     class="minus">-</button>
                                                     <input
+                                                        width="15"
                                                         class="quantity"
                                                         min="0"
                                                         name="{{$id}}"
@@ -103,9 +139,18 @@
                             </table>
                         </div>
                         <!-- End -->
-                        <a href="/cart" class="btn btn-primary">reset</a>
-                        <button type="submit">update cart</button>
-                        <a href="/checkout" class="btn btn-primary">checkout</a>
+                        <div class="row" style="padding-left: 20px; padding-right: 20px;">
+                            <div class="col-md-4">
+                                <a href="/cart" class="btn btn-primary">reset</a>
+                                <button type="submit">update cart</button>
+                            </div>
+                            <div class="col-md-2 offset-md-6">
+                                <a href="/checkout" class="btn btn-primary">checkout</a>
+                            </div>
+                        </div>
+
+
+
                     </form>
                 @else
                     <div class="row">

@@ -34,7 +34,7 @@ Route::get('formules', 'FormuleController@list');
 Route::get('produits/{cat?}', 'ProduitController@list');
 
 Route::get('/produits/{id}/ingredients', function ($id) {
-    return view('ingredient.ingredients', ['ingredients' => Produit::find($id)->elementbases]);
+    return view('ingredient.ingredients', ['ingredients' => Produit::find($id)->elementbases, 'produit' => Produit::find($id)]);
 });
 
 Route::get('/add-produit-to-cart/{id}', 'ProduitController@getAddToCart');

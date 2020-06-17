@@ -6,11 +6,13 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Laravelista\Comments\Commentable;
+
 //use Intervention\Image\Image;
 
 class Produit extends Model
 {
-    use CrudTrait;
+    use CrudTrait, Commentable;
 
     /*
     |--------------------------------------------------------------------------
