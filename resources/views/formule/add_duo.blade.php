@@ -41,14 +41,23 @@
             background-color: white;
             min-height: 70vh
         ">
-            <div class="container" style="margin-top: 0px; margin-bottom: 100px; padding-right: 50px; padding-left: 50px">
+            <div class="container" style="margin-top: 0px; margin-bottom: 100px; padding-right: 200px; padding-left: 200px">
+
+                <div class="row" style="margin-bottom: 20px">
+                    <div class="col-md-8 offset-md-2" style="text-align: center">
+                        <h1 style="text-align: center">Selectionnez les produits</h1>
+                    </div>
+                </div>
+
+                <hr style="margin-bottom: 25px">
+
                 <form action="/add-formule-to-cart/{{$formule->codeFormule}}" method="post">
                     @csrf
 
-                    <div class="row" style="padding-left: 140px">
-                        <div class="col-md-6 form-group" style="margin-bottom: 40px">
+                    <div class="row">
+                        <div class="col-md-5 form-group" style="margin-bottom: 40px">
                             <label for="pizza1">Pizza 1</label>
-                            <select style="width: 70%" id="pizza1" class="form-control" name="pizza1">
+                            <select id="pizza1" class="form-control" name="pizza1">
                                 @foreach ($produits as $produit)
                                     @if ($produit->categories->nomCat == 'pizza')
                                         <option style="background-image: url('{{ asset('uploads/img/wood-background.jpg') }}')">
@@ -59,9 +68,9 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 form-group" style="margin-bottom: 40px">
+                        <div class="col-md-5 offset-md-2 form-group" style="margin-bottom: 40px">
                             <label for="pizza2">Pizza 2</label>
-                            <select style="width: 70%" id="pizza2" class="form-control" name="pizza2">
+                            <select id="pizza2" class="form-control" name="pizza2">
                                 @foreach ($produits as $produit)
                                     @if ($produit->categories->nomCat == 'pizza')
                                         <option>{{$produit->nom}}</option>
@@ -70,7 +79,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-5" style="margin-bottom: 40px">
                             <div class="form-check form-check-inline">
                                 <input checked class="form-check-input" type="radio" name="choix" id="radio_salade" value="option1">
                                 <label class="form-check-label" for="radio_salade">Salade vert</label>
@@ -80,7 +89,7 @@
                                 <label class="form-check-label" for="radio_wings">6 chicken wings</label>
                             </div>
 
-                            <select style="width: 70%; margin-top: 7px" class="form-control" name="salade_verte" id="salade_verte">
+                            <select style="margin-top: 7px" class="form-control" name="salade_verte" id="salade_verte">
                                 @foreach ($produits as $produit)
                                     @if ($produit->categories->nomCat == 'salade verte')
                                         <option>{{$produit->nom}}</option>
@@ -88,14 +97,14 @@
                                 @endforeach
                             </select>
 
-                            <div class="form-group">
-                                <input value="6 chicken wings" name="chicken_wings" class="form-control" id="chicken_wings" hidden>
+                            <div class="form-group" style="margin-top: 7px">
+                                <input value="6 chicken wings" name="chicken_wings" class="form-control" id="chicken_wings" readonly hidden>
                             </div>
                         </div>
 
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-5 offset-md-2 form-group" style="margin-bottom: 40px">
                             <label for="boisson1">Boisson 1</label>
-                            <select style="width: 70%" class="form-control" id="boisson1" name="boisson1">
+                            <select class="form-control" id="boisson1" name="boisson1">
                                 @foreach ($produits as $produit)
                                     @if ($produit->categories->nomCat == 'boisson'
                                         && (
@@ -109,9 +118,9 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-5 form-group" style="margin-bottom: 40px">
                             <label for="boisson2">Boisson 2</label>
-                            <select style="width: 70%" class="form-control" id="boisson2" name="boisson2">
+                            <select class="form-control" id="boisson2" name="boisson2">
                                 @foreach ($produits as $produit)
                                     @if ($produit->categories->nomCat == 'boisson'
                                         && (
@@ -128,7 +137,7 @@
                         <hr />
 
                         <div class="col-md-3 offset-md-9 form-group">
-                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                            <button type="submit" style="width: 100%" class="btn btn-primary mb-2">Submit</button>
                         </div>
                     </div>
                 </form>

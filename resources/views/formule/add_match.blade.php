@@ -41,14 +41,23 @@
             background-color: white;
             min-height: 70vh
         ">
-            <div class="container" style="margin-top: 0px; margin-bottom: 100px; padding-right: 50px; padding-left: 50px">
+            <div class="container" style="margin-top: 0px; margin-bottom: 100px; padding-right: 200px; padding-left: 200px">
+
+                <div class="row" style="margin-bottom: 20px">
+                    <div class="col-md-8 offset-md-2" style="text-align: center">
+                        <h1 style="text-align: center">Selectionnez les produits</h1>
+                    </div>
+                </div>
+
+                <hr style="margin-bottom: 25px">
+
                 <form action="/add-formule-to-cart/{{$formule->codeFormule}}" method="post">
                     @csrf
 
-                    <div class="row" style="padding-left: 140px">
-                        <div class="col-md-6 form-group" style="margin-bottom: 40px">
+                    <div class="row">
+                        <div class="col-md-5 form-group" style="margin-bottom: 40px">
                             <label for="pizza1">Pizza 1</label>
-                            <select style="width: 70%" id="pizza1" class="form-control" name="pizza1">
+                            <select id="pizza1" class="form-control" name="pizza1">
                                 @foreach ($produits as $produit)
                                     @if ($produit->categories->nomCat == 'pizza')
                                         <option>{{$produit->nom}}</option>
@@ -57,9 +66,9 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 form-group" style="margin-bottom: 40px">
+                        <div class="col-md-5 offset-md-2 form-group" style="margin-bottom: 40px">
                             <label for="pizza2">Pizza 2</label>
-                            <select style="width: 70%" id="pizza2" class="form-control" name="pizza2">
+                            <select id="pizza2" class="form-control" name="pizza2">
                                 @foreach ($produits as $produit)
                                     @if ($produit->categories->nomCat == 'pizza')
                                         <option>{{$produit->nom}}</option>
@@ -68,9 +77,9 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 form-group" style="margin-bottom: 40px">
+                        <div class="col-md-5 form-group" style="margin-bottom: 40px">
                             <label for="pizza3">Pizza 3</label>
-                            <select style="width: 70%" id="pizza3" class="form-control" name="pizza3">
+                            <select id="pizza3" class="form-control" name="pizza3">
                                 @foreach ($produits as $produit)
                                     @if ($produit->categories->nomCat == 'pizza')
                                         <option>{{$produit->nom}}</option>
@@ -79,9 +88,9 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-5 offset-md-2 form-group" style="margin-bottom: 40px">
                             <label for="vin">Vin</label>
-                            <select style="width: 70%" class="form-control" id="vin" name="vin">
+                            <select class="form-control" id="vin" name="vin">
                                 @foreach ($produits as $produit)
                                     @if ($produit->categories->nomCat == 'vin' && (
                                         $produit->nom == 'rouge' ||
@@ -97,7 +106,7 @@
                         <hr />
 
                         <div class="col-md-3 offset-md-9 form-group">
-                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                            <button type="submit" style="width: 100%" class="btn btn-primary mb-2">Submit</button>
                         </div>
                     </div>
                 </form>
