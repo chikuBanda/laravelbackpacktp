@@ -25,7 +25,7 @@
                 left: 90px;
                 right: 90px;
             ">
-                    <div style="
+                <div style="
                     background-size: cover;
                     height: 100%;
                     background-color: white;
@@ -39,8 +39,9 @@
             display: flex;
             flex-flow: column;
             background-color: white;
+            min-height: 70vh
         ">
-            <div class="container" style="margin: 0px 100px 100px 100px;">
+            <div class="container" style="margin-top: 0px; margin-bottom: 100px; padding-left: 130px">
                 <div class="row">
                     <div class="col-md-7">
                         <img
@@ -102,7 +103,7 @@
                 <hr style="width: 77%; margin-left: 0px; margin-right: 0px;">
 
                 <h4 style="margin-top: 40px; margin-bottom: 30px"><strong>Commentaires</strong></h4>
-                <div class="container" style="    width: 80%; padding-left: 0px; margin-left: 15px;">
+                <div class="container" style="padding: 40px; background-color: aquamarine; border-radius: 15px; width: 80%; margin-left: 0;">
                     @comments(['model' => $produit])
                 </div>
             </div>

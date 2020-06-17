@@ -39,8 +39,9 @@
             display: flex;
             flex-flow: column;
             background-color: white;
+            min-height: 70vh
         ">
-            <div class="container" style="margin: 0px 100px 100px 100px; display: flex;">
+            <div class="container" style="margin-top: 0px; margin-bottom: 100px; padding-right: 50px; padding-left: 50px">
                 @if (Session::has('cart'))
                     <!-- Shopping cart table -->
                     <form action="{{route('updateCart')}}" method="post">
@@ -72,10 +73,10 @@
                                         <tr>
                                             <th scope="row" class="border-0">
                                                 <div class="p-2">
-                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
-                                                </div>
+                                                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                    <div style="max-width: 54%" class="ml-3 d-inline-block align-middle">
+                                                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
+                                                    </div>
                                                 </div>
                                             </th>
                                             <td class="border-0 align-middle"><strong class="prix">{{$item['item']->prix}}</strong></td>
@@ -115,17 +116,18 @@
                                             </th>
                                             <td class="border-0 align-middle"><strong class="prix">{{$item['item']->prix}}</strong></td>
                                             <td class="border-0 align-middle">
-                                                <div class="def-number-input number-input mb-0 w-100">
+                                                <div class="def-number-input number-input mb-0">
                                                     <button type="button" onclick="subtract(this)"
                                                     class="minus">-</button>
                                                     <input
-                                                        width="15"
                                                         class="quantity"
                                                         min="0"
                                                         name="{{$id}}"
                                                         value="{{$item['quantity']}}"
                                                         type="number"
-                                                        onchange="myfunc(this)">
+                                                        onchange="myfunc(this)"
+                                                        style="width: 50%"
+                                                        >
                                                     <button type="button" onclick="add(this)"
                                                     class="plus">+</button>
                                                 </div>
@@ -141,21 +143,20 @@
                         <!-- End -->
                         <div class="row" style="padding-left: 20px; padding-right: 20px;">
                             <div class="col-md-4">
-                                <a href="/cart" class="btn btn-primary">reset</a>
-                                <button type="submit">update cart</button>
+                                <a href="/cart" class="btn btn-outline-secondary">reset</a>
+                                <button class="btn btn-primary" type="submit">update cart</button>
                             </div>
                             <div class="col-md-2 offset-md-6">
-                                <a href="/checkout" class="btn btn-primary">checkout</a>
+                                <a href="/checkout" class="btn btn-success">checkout</a>
                             </div>
                         </div>
-
-
 
                     </form>
                 @else
                     <div class="row">
-                        <div class="col-sm-6 col-md-4 offset-md-4 offset-md-3">
-                            <h2>No items in Cart</h2>
+                        <div class="col-sm-6 col-md-4 offset-sm-3 offset-md-4">
+                            <h2 style="text-align: center">No items in Cart</h2>
+                            <a href="/produits" class="btn btn-success" style="width: 100%">Go to products</a>
                         </div>
                     </div>
                 @endif
