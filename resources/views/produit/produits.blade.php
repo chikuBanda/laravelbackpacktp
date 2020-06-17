@@ -8,13 +8,6 @@
             background-image: url('{{ asset('uploads/img/pizza2.jpg') }}');">
             <div style="background-color: black; width: inherit; height: inherit; opacity: 50%"></div>
     </div>
-    <div id="info_section" style="
-            background-size: cover;
-            width: 100%;
-            height: 100vh;
-            background-color: white;
-            ">
-    </div>
     <div id="contents"
         style="
             background-attachment: fixed;
@@ -83,5 +76,3 @@
 @section('styles')
     <link href="{{ asset('css/produit.css') }}" rel="stylesheet">
 @endsection
-
-

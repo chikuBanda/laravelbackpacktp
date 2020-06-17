@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('welcome');
+});
+
 Route::get('/test', 'FormuleController@carttest');
 
 //carttest
@@ -77,5 +81,3 @@ Route::get('/formules/{id}/{nom}', function ($id, $nom) {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

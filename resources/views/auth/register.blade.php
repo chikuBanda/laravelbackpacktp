@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 150px; margin-bottom: 200px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -144,4 +144,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/jquery.js') }}"></script>
+@endsection
+
+@section('styles')
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 @endsection

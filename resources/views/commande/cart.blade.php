@@ -90,6 +90,7 @@
                                                         name="{{$id}}"
                                                         value="{{$item['quantity']}}"
                                                         type="number"
+                                                        style="width: 50%"
                                                         onchange="myfunc(this)">
                                                     <button type="button" onclick="add(this)"
                                                     class="plus">+</button>
@@ -104,7 +105,7 @@
                                             <th scope="row" class="border-0">
                                                 <div class="p-2">
                                                 <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                <div class="ml-3 d-inline-block align-middle">
+                                                <div style="max-width: 54%" class="ml-3 d-inline-block align-middle">
                                                     <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Formule {{$item['item']->nomFormule}}</a></h5>
                                                     <div>
                                                         @foreach (($item['produits']) as $prod)
