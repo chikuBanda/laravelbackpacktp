@@ -16,6 +16,7 @@ class CreateElementbasesTable extends Migration
         Schema::create('elementbases', function (Blueprint $table) {
             $table->increments('numElem');
             $table->string('nomElem');
+            $table->text('imgPath');
         });
     }
 

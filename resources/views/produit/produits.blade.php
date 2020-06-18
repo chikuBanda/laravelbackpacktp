@@ -60,8 +60,8 @@
                             @if ($produit->categories->nomCat == $cat)
                                 <div class="col-md-4" style="margin-bottom: 120px">
                                     <div style="background-color: white; border-radius: 15px; width: 250px; height: 370px;">
-                                        <div style="padding-top: 20px; height: 50%;">
-                                            <img src="{{ asset('uploads/img/pizza-food-pepperoni-made-removebg-preview.png') }}" style="width: 250px; height: 100%" alt="{{$produit->nom}}">
+                                        <div style="padding-top: 20px; height: 45%; text-align: center; margin-bottom: 10px">
+                                            <img src="{{ asset($produit->imgPath) }}" style="width: 200px; height: 100%;" alt="{{$produit->nom}}">
                                         </div>
                                         <h3 style="text-align: center">{{$produit->nom}}</h3>
                                         <p style="text-align: center">${{$produit->prix}}</p>

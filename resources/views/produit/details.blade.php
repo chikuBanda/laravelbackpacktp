@@ -58,12 +58,13 @@
                 <div class="row">
                     <div class="col-md-7">
                         <img
-                            src="{{ asset('uploads/img/pizza2.jpg') }}"
+                            src="{{ asset($produit->imgPath) }}"
                             alt=""
                             srcset=""
                             width="550"
                             height="350"
-                            style="border-radius: 21px">
+                            style="border-radius: 21px; border: 1px solid grey"
+                            >
                         <h2 style="margin-top: 20px; margin-bottom: 20px"><strong>Pepperoni pizza</strong></h2>
                     </div>
                     <div class="col-md-5" style="padding-left: 60px">
@@ -83,19 +84,22 @@
                 </div>
                 <hr style="width: 77%; margin-left: 0px; margin-right: 0px;">
 
-                <h4 style="margin-top: 40px; margin-bottom: 30px">Ingredients</h4>
-                <div class="container">
-                    <div class="row">
-                        @foreach ($ingredients as $ingredient)
-                            <div class="col-md-4" style="margin-bottom: 40px">
-                                <img src="{{ asset('uploads/img/pizza2.jpg') }}" alt="" width="100" height="100">
-                                <h5 style="margin-top: 10px;">{{$ingredient->nomElem}}</h3>
-                            </div>
-                        @endforeach
+                @if ($ingredients)
+                    <h4 style="margin-top: 40px; margin-bottom: 30px">Ingredients</h4>
+                    <div class="container">
+                        <div class="row">
+                            @foreach ($ingredients as $ingredient)
+                                <div class="col-md-4" style="margin-bottom: 40px">
+                                    <img src="{{ asset($ingredient->imgPath) }}" alt="{{$ingredient->nomElem}}" width="100" height="100">
+                                    <h5 style="margin-top: 10px;">{{$ingredient->nomElem}}</h3>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
 
-                <hr style="width: 77%; margin-left: 0px; margin-right: 0px;">
+                    <hr style="width: 77%; margin-left: 0px; margin-right: 0px;">
+
+                @endif
 
                 <h4 style="margin-top: 40px; margin-bottom: 30px">Commentaires</h4>
                 <div class="container" style="padding: 40px; background-color: rgb(243, 243, 247); border-radius: 15px; width: 80%; margin-left: 0;">

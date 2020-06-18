@@ -99,7 +99,7 @@
                             <label for="imgPath" class="col-md-4 col-form-label text-md-right">{{ __('imgPath') }}</label>
 
                             <div class="col-md-6">
-                                <input id="imgPath" type="text" class="form-control @error('imgPath') is-invalid @enderror" name="imgPath" value="{{ old('imgPath') }}" required autocomplete="imgPath">
+                                <input id="imgPath" type="file" oninput="uploaded(event)" class="form-control @error('imgPath') is-invalid @enderror" name="imgPath" value="{{ old('imgPath') }}" required autocomplete="imgPath">
 
                                 @error('imgPath')
                                     <span class="invalid-feedback" role="alert">
@@ -148,6 +148,7 @@
 
 @section('scripts')
     <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/register.js') }}"></script>
 @endsection
 
 @section('styles')

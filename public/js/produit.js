@@ -23,10 +23,5 @@ $(document).ready(function() {
         tabwrap.removeClass('d-none');
       }
     });
-
-
-    $window.on('scroll', function() {
-        $('nav').toggleClass('navbar-scroll', $(this).scrollTop > 200);
-    });
 });
 

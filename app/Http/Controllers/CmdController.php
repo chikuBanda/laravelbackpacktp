@@ -92,7 +92,12 @@ class CmdController extends Controller
                 {
                     $cmd
                         ->formules()
-                        ->attach($produit['item']->codeFormule);
+                        ->attach($produit['item']->codeFormule,
+                        [
+                            'prix'=>$produit['prix'],
+                            'nb'=>$produit['quantity']
+                        ]
+                    );
 
                     $lignecmdform = Lignecmdform::where('numCommande', $cmd->numCommande)
                                     ->where('codeFormule', $produit['item']->codeFormule)->first();

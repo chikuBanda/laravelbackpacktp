@@ -48,7 +48,7 @@
                     <div class="col-md-4" style="margin-bottom: 120px;">
                         <div style="background-color: white; border-radius: 15px; width: 300px; height: 370px;">
                             <div style="padding-top: 20px; height: 50%; text-align: center;">
-                                <img src="{{ asset('uploads/img/pizza-combo.jpg') }}" style="width: 250px; height: 100%" alt="{{$formule->nomFormule}}">
+                                <img src="{{ $formule->imgPath }}" style="width: 250px; height: 100%" alt="{{$formule->nomFormule}}">
                             </div>
                             <h3 style="text-align: center">{{$formule->nomFormule}}</h3>
                             <h5 style="text-align: center">${{$formule->prix}}</h5>

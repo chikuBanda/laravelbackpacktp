@@ -59,9 +59,9 @@ Route::post('/updateCart', [
 
 
 Route::get('/formules/{id}/{nom}', function ($id, $nom) {
-    if($nom == 'formulaire')
+    if($nom == 'solo')
     {
-        return view('formule.add', ['formule'=>Formule::find($id), 'produits'=>Produit::all()]);
+        return view('formule.add_solo', ['formule'=>Formule::find($id), 'produits'=>Produit::all()]);
     }
     if($nom == 'duo')
     {

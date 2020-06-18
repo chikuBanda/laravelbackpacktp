@@ -26,7 +26,7 @@ class FormuleRequest extends FormRequest
     public function rules()
     {
         return [
-            'nomFormule' => 'required|min:5|max:255',
+            'nomFormule' => 'required|min:3|max:255',
             'prix' => 'required|numeric|gte:0',
             'description' => 'required|min:2|max:255',
             'imgPath' => 'required'

@@ -29,7 +29,42 @@ class ElementbaseCrudController extends CrudController
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
+        //$this->crud->setFromDb();
+
+        $this->crud->setColumns([
+            'nomElem',
+            'imgPath'
+        ]);
+
+        $this->crud->setColumnDetails(
+            'imgPath',
+            [
+                'label' => 'Image',
+                'type' => 'image',
+                'height' => '50px',
+                'width' => '80px'
+            ]
+        );
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', false);
+
+        $this->crud->setColumns([
+            'numElem',
+            'nomElem'
+        ]);
+
+        $this->crud->setColumnDetails(
+            'imgPath',
+            [
+                'label' => 'Image',
+                'type' => 'image',
+                'height' => '50px',
+                'width' => '80px'
+            ]
+        );
     }
 
     protected function setupCreateOperation()
@@ -37,7 +72,25 @@ class ElementbaseCrudController extends CrudController
         $this->crud->setValidation(ElementbaseRequest::class);
 
         // TODO: remove setFromDb() and manually define Fields
-        $this->crud->setFromDb();
+        // $this->crud->setFromDb();
+
+        $this->crud->addField([
+            'name' => 'nomElem',
+            'type' => 'text',
+            'label' => "Nom"
+        ]);
+
+        $this->crud->addField([
+            'name' => 'imgPath',
+            'type' => 'image',
+            'label' => "image",
+            'height' => '50px',
+            'width' => '50px',
+            'upload' => true,
+            'crop' => true,
+            'aspect_ratio' => 1,
+            //'prefix' => 'uploads/img'
+        ]);
     }
 
     protected function setupUpdateOperation()

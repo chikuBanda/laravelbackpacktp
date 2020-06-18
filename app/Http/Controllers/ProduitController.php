@@ -13,22 +13,23 @@ use Illuminate\Support\Facades\URL;
 
 class ProduitController extends Controller
 {
-    public function list($cat = null)
+    public function list(Request $request, $cat = '')
     {
-        //dd(session()->all());
-        if($cat)
+        if($cat != '' && $cat != null)
         {
             $temp = Catproduit::where('nomCat', $cat)->first();
             if($temp)
             {
-                return view('produit.produits', ['produits' => Produit::all(), 'categories' => Catproduit::all(), 'cat' => $cat]);
+                return view('produit.produits', ['produits' => Produit::all(), 'categories' => Catproduit::all(), 'cat' => $cat, 'path' => $request->url()]);
             }
             else
             {
                 return redirect('/produits');
             }
         }
-        return view('produit.produits', ['produits' => Produit::all(), 'categories' => Catproduit::all(), 'cat' => 'pizza']);
+        else{
+            return view('produit.produits', ['produits' => Produit::all(), 'categories' => Catproduit::all(), 'cat' => 'pizza', 'path' => $request->url()]);
+        }
     }
 
     public function getAddToCart(Request $request, $id)

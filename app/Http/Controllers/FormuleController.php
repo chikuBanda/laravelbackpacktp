@@ -17,7 +17,7 @@ class FormuleController extends Controller
 
     public function postAddToCart(Request $request, $id)
     {
-        if(Formule::find($id)->nomFormule == 'formulaire')
+        if(Formule::find($id)->nomFormule == 'solo')
         {
             if ($request->has('chicken_wings')) {
                 $pizza1 = Produit::where('nom', $request->input('pizza1'))->first();
