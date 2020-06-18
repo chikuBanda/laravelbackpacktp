@@ -7,15 +7,29 @@
         display: flex;
         flex-flow: column;
         min-height: 100vh;
-        background-color: pink;
-    ">
+        background-color: #e8dcd8;
+        ">
         <div style="
             background-size: cover;
             width: 100%;
             height: 200px;
-            background-color: black;
+            background-image: url('{{ asset('uploads/img/ingredients.jpg') }}');
             position: relative;
         ">
+            <div style="background-color: black; width: inherit; height: inherit; opacity: 50%">
+            </div>
+            <h1
+                style="
+                    position: absolute;
+                    background-color: transparent;
+                    top: 60px;
+                    left: 30%;
+                    right: 30%;
+                    color: white;
+                    text-align: center;
+                "
+            >Panier</h1>
+
             <div style="
                 background-size: cover;
                 position: absolute;
@@ -75,7 +89,8 @@
                                                 <div class="p-2">
                                                     <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
                                                     <div style="max-width: 54%" class="ml-3 d-inline-block align-middle">
-                                                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
+                                                        <h5 class="mb-0"> <a href="/produits/{{$item['item']->codeProduit}}/details" class="text-dark d-inline-block align-middle">{{$item['item']->nom}}</a></h5>
+                                                        <span class="text-muted font-weight-normal font-italic d-block">Categorie: {{$item['item']->categories->nomCat}}</span>
                                                     </div>
                                                 </div>
                                             </th>
@@ -106,7 +121,7 @@
                                                 <div class="p-2">
                                                 <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
                                                 <div style="max-width: 54%" class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Formule {{$item['item']->nomFormule}}</a></h5>
+                                                    <h5 class="mb-0"> <a href="/formules/{{$item['item']->codeFormule}}/{{$item['item']->nomFormule}}" class="text-dark d-inline-block align-middle">Formule {{$item['item']->nomFormule}}</a></h5>
                                                     <div>
                                                         @foreach (($item['produits']) as $prod)
                                                             <span class="text-muted font-weight-normal font-italic">{{$prod->nom}}, </span>
@@ -148,7 +163,7 @@
                                 <button class="btn btn-primary" type="submit">update cart</button>
                             </div>
                             <div class="col-md-2 offset-md-6">
-                                <a href="/checkout" class="btn btn-success">checkout</a>
+                                <a href="/checkout" class="btn btn-success" style="width: 100%">checkout</a>
                             </div>
                         </div>
 

@@ -7,15 +7,29 @@
         display: flex;
         flex-flow: column;
         min-height: 100vh;
-        background-color: pink;
-    ">
+        background-color: #e8dcd8;
+        ">
         <div style="
             background-size: cover;
             width: 100%;
             height: 200px;
-            background-color: black;
+            background-image: url('{{ asset('uploads/img/ingredients.jpg') }}');
             position: relative;
         ">
+            <div style="background-color: black; width: inherit; height: inherit; opacity: 50%">
+            </div>
+            <h1
+                style="
+                    position: absolute;
+                    background-color: transparent;
+                    top: 60px;
+                    left: 30%;
+                    right: 30%;
+                    color: white;
+                    text-align: center;
+                "
+            >Formule {{$formule->nomFormule}}</h1>
+
             <div style="
                 background-size: cover;
                 position: absolute;
@@ -46,6 +60,7 @@
                 <div class="row" style="margin-bottom: 20px">
                     <div class="col-md-8 offset-md-2" style="text-align: center">
                         <h1 style="text-align: center">Selectionnez les produits</h1>
+                        <p style="margin-bottom: 0px"><i>{{$formule->description}}</i></p>
                     </div>
                 </div>
 

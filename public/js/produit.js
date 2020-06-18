@@ -14,7 +14,7 @@ $(document).ready(function() {
       var viewport_height = $(window).height();
       var scrollTop_bottom = scrollTop + viewport_height;
       //console.log(scrollTop_bottom);
-      if(scrollTop_bottom >= (prefooter_top + 50) || scrollTop_bottom <= (info_sec_top + 350))
+      if(scrollTop_bottom >= (prefooter_top + 50) || scrollTop_bottom <= (info_sec_top + 400))
       {
         tabwrap.addClass('d-none');
       }

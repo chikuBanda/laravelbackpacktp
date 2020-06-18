@@ -1,21 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
+<div style="
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+    background-color: #e8dcd8;
+    ">
     <div style="
         background-size: cover;
         width: 100%;
-        display: flex;
-        flex-flow: column;
-        min-height: 100vh;
-        background-color: pink;
+        height: 200px;
+        background-image: url('{{ asset('uploads/img/ingredients.jpg') }}');
+        position: relative;
     ">
-        <div style="
-            background-size: cover;
-            width: 100%;
-            height: 200px;
-            background-color: black;
-            position: relative;
-        ">
+        <div style="background-color: black; width: inherit; height: inherit; opacity: 50%">
+        </div>
+        <h1
+            style="
+                position: absolute;
+                background-color: transparent;
+                top: 60px;
+                left: 30%;
+                right: 30%;
+                color: white;
+                text-align: center;
+            "
+        >Checkout</h1>
+
             <div style="
                 background-size: cover;
                 position: absolute;
@@ -93,14 +107,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="card-expiry-month">Expiration Month</label>
+                                        <label for="card-expiry-month">Exp. Month</label>
                                         <input type="text" id="card-expiry-month" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="card-expiry-year">Expiration Year</label>
+                                        <label for="card-expiry-year">Exp. Year</label>
                                         <input type="text" id="card-expiry-month" class="form-control" required>
                                     </div>
                                 </div>

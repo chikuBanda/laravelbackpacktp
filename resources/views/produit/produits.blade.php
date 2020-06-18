@@ -5,8 +5,21 @@
             background-size: cover;
             width: 100%;
             height: 100vh;
+            position: relative;
             background-image: url('{{ asset('uploads/img/pizza2.jpg') }}');">
             <div style="background-color: black; width: inherit; height: inherit; opacity: 50%"></div>
+            <h1
+                style="
+                    position: absolute;
+                    background-color: transparent;
+                    top: 40%;
+                    bottom: 40%;
+                    left: 30%;
+                    right: 30%;
+                    color: white;
+                    text-align: center;
+                "
+            >Tous nos Produits</h1>
     </div>
     <div id="contents"
         style="
@@ -52,8 +65,8 @@
                                         </div>
                                         <h3 style="text-align: center">{{$produit->nom}}</h3>
                                         <p style="text-align: center">${{$produit->prix}}</p>
-                                        <a class="btn" style="background-color: #FEDDCA; display: block; margin-bottom: 10px; width: 70%; margin-left: auto; margin-right: auto; border-radius: 15px;" href="/produits/{{$produit->codeProduit}}/ingredients">ingredients</a>
-                                        <a class="btn" style="background-color: #FC955B; display: block; width: 70%; margin-left: auto; margin-right: auto; border-radius: 15px;" href="/add-produit-to-cart/{{$produit->codeProduit}}">add to cart</a> <br>
+                                        <a class="btn" style="background-color: #FEDDCA; display: block; margin-bottom: 10px; width: 70%; margin-left: auto; margin-right: auto; border-radius: 15px;" href="/produits/{{$produit->codeProduit}}/details">details</a>
+                                        <a class="btn" style="background-color: #FC955B; display: block; width: 70%; margin-left: auto; margin-right: auto; border-radius: 15px;" href="/add-produit-to-cart/{{$produit->codeProduit}}">ajouter au panier</a> <br>
                                         <br>
                                     </div>
                                 </div>

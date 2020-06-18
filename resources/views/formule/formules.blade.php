@@ -5,8 +5,21 @@
         background-size: cover;
         width: 100%;
         height: 100vh;
+        position: relative;
         background-image: url('{{ asset('uploads/img/pizza2.jpg') }}');">
         <div style="background-color: black; width: inherit; height: inherit; opacity: 50%"></div>
+        <h1
+            style="
+                position: absolute;
+                background-color: transparent;
+                top: 40%;
+                bottom: 40%;
+                left: 30%;
+                right: 30%;
+                color: white;
+                text-align: center;
+            "
+        >Tous nos Formules</h1>
     </div>
     <div id="contents"
         style="
@@ -30,7 +43,7 @@
             @endif
 
 
-            <div class="row justify-content-center">
+            <div class="row">
                 @foreach ($formules as $formule)
                     <div class="col-md-4" style="margin-bottom: 120px;">
                         <div style="background-color: white; border-radius: 15px; width: 300px; height: 370px;">
@@ -39,7 +52,7 @@
                             </div>
                             <h3 style="text-align: center">{{$formule->nomFormule}}</h3>
                             <h5 style="text-align: center">${{$formule->prix}}</h5>
-                            <p style="text-align: center">${{$formule->description}}</p>
+                            <p style="text-align: center">{{$formule->description}}</p>
                             <a class="btn" style="background-color: #FC955B; display: block; width: 70%; margin-left: auto; margin-right: auto; border-radius: 15px;" href="/formules/{{$formule->codeFormule}}/{{$formule->nomFormule}}">Selectionnez</a> <br>
                             <br>
                         </div>
