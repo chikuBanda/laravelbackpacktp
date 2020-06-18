@@ -8,6 +8,15 @@
             position: relative;
             background-image: url('{{ asset('uploads/img/pizza2.jpg') }}');">
             <div style="background-color: black; width: inherit; height: inherit; opacity: 50%"></div>
+            @if (Session::has('success'))
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 offset-md4 offset-sm-3">
+                        <div id="charge-message" class="alert alert-success">
+                            {{Session::get('success')}}
+                        </div>
+                    </div>
+                </div>
+            @endif
             <h1
                 style="
                     position: absolute;
@@ -32,15 +41,6 @@
             background-image: url('{{ asset('uploads/img/wood-background6.jpg') }}');
             padding-top: 30px">
         <div class="container" style="padding-top: 50px">
-            @if (Session::has('success'))
-                <div class="row">
-                    <div class="col-sm-6 col-md-4 offset-md4 offset-sm-3">
-                        <div id="charge-message" class="alert alert-success">
-                            {{Session::get('success')}}
-                        </div>
-                    </div>
-                </div>
-            @endif
 
             <div id="tab-buttons" class="tab">
                 @foreach ($categories as $categorie)
