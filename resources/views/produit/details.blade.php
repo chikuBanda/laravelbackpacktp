@@ -63,7 +63,7 @@
                             srcset=""
                             width="550"
                             height="350"
-                            style="border-radius: 21px; border: 1px solid grey"
+                            style="border-radius: 21px; border: 1px solid rgb(243, 243, 247)"
                             >
                         <h2 style="margin-top: 20px; margin-bottom: 20px"><strong>Pepperoni pizza</strong></h2>
                     </div>
@@ -84,7 +84,7 @@
                 </div>
                 <hr style="width: 77%; margin-left: 0px; margin-right: 0px;">
 
-                @if ($ingredients)
+                @if ($ingredients->count() > 0)
                     <h4 style="margin-top: 40px; margin-bottom: 30px">Ingredients</h4>
                     <div class="container">
                         <div class="row">
