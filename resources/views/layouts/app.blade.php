@@ -49,7 +49,17 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="/produits">Produits</a>
+                                {{-- <a class="nav-link" href="/produits">
+                                    Produits
+                                </a> --}}
+                                <div class="dropdown">
+                                    <button class="dropbtn">commandez</button>
+                                    <div class="dropdown-content">
+                                      <a href="#">Link 1</a>
+                                      <a href="#">Link 2</a>
+                                      <a href="#">Link 3</a>
+                                    </div>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/formules">Formules</a>
@@ -73,10 +83,16 @@
                             @endif
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/produits">Produits</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/formules">Formules</a>
+                                    {{-- <a class="nav-link" href="/produits">
+                                        Produits
+                                    </a> --}}
+                                    <div class="dropdown">
+                                        <a class="nav-link" style="cursor: pointer">Commandez</a>
+                                        <div class="dropdown-content">
+                                            <a href="/produits">Produits</a>
+                                            <a href="/formules">Formules</a>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/cart">Cart
